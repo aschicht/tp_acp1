@@ -1,10 +1,10 @@
-#Administracion y control de proyectos 1
+# Administracion y control de proyectos 1
 ****************************************
 
-##Instrucciones de instalacion para ubuntu
+## Instrucciones de instalacion para ubuntu
 (fuente: https://www.digitalocean.com/community/tutorials/how-to-install-django-and-set-up-a-development-environment-on-ubuntu-16-04)
 
-####Instalar python3 y pip3
+#### Instalar python3 y pip3
 
 Escribir en la terminal:
 
@@ -48,7 +48,7 @@ Deberia mostrar algo parecido a:
 pip 9.0.1 from /usr/lib/python3/dist-packages (python 3.6)
 ```
 
-####Instalar virtualenv
+#### Instalar virtualenv
 
 Virtualenv es una herramienta que nos permite crear un ambiente 
 virtual que podemos activar y desactivar para instalar librerias
@@ -68,7 +68,7 @@ Deberiamos ver algo asi como:
 15.1.0
 ```
 
-####Crear el ambiente virtual
+#### Crear el ambiente virtual
 Nos vamos en la terminal a la carpeta ANTERIOR a donde tenemos el proyecto que bajamos 
 de github y escribimos:
 
