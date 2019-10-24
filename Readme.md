@@ -93,6 +93,16 @@ $ deactivate
 ```
 Siempre trabajamos en el ambiente virtual cuando codeamos.
 
+#### Bajar las librerias requeridas
+
+Vamos a usar un archivo que se llama requirements.txt que contiene 
+un listado de las librerias necesarias para correr el proyecto
+
+```
+$ pip3 install -r requirements.txt
+```
+
+
 #### Crear la base de datos
 
 Vamos a usar una base de datos sqlite que es lo mas facil, para crearla:
@@ -109,6 +119,14 @@ $ python3 manage.py createsuperuser --username=admin --email=admin@admin.com
 
 Les va a pedir una password, usen la que mas les guste. Con eso tenemos creada una 
 base de datos que se llama db.sqlite3 en el proyecto. POR FAVOR NO SUBAN ESO AL REPOSITORIO.
+
+#### Correr las migraciones de la base de datos para crear el schema
+
+Para que nos cree el schema de la base de datos usamos:
+
+```
+$ python3 manage.py migrate 
+```
 
 #### Correr el proyecto
 
