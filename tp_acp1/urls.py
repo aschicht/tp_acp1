@@ -21,6 +21,7 @@ from tp_acp1 import api, settings
 
 router = routers.DefaultRouter()
 router.register(r'medio-de-pago', api.MedioDePagoViewSet)
+router.register(r'plato', api.PlatoViewSet)
 
 
 urlpatterns = [
