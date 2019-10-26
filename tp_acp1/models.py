@@ -30,4 +30,11 @@ class Plato(models.Model):
         return self.nombre + '-Habilitado' if self.activo else '-Deshabilitado'
 
 
+class Promocion(models.Model):
+    nombre = models.CharField(max_length=80)
+    descripcion = models.CharField(max_length=400)
+    activo = models.BooleanField()
+
+    def __str__(self):
+        return self.nombre + '-Habilitado' if self.activo else '-Deshabilitado'
 
