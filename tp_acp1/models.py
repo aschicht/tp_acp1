@@ -38,3 +38,15 @@ class Promocion(models.Model):
     def __str__(self):
         return self.nombre + '-Habilitado' if self.activo else '-Deshabilitado'
 
+
+class MenuDelDia(models.Model):
+    entrada = models.ForeignKey(Plato, on_delete=models.SET_NULL, null=True, related_name='+')
+    plato_principal = models.ForeignKey(Plato, on_delete=models.SET_NULL, null=True, related_name='+' )
+    postre = models.ForeignKey(Plato, on_delete=models.SET_NULL, null=True, related_name='+')
+    precio = models.CharField(max_length=30)
+    cafe = models.BooleanField()
+    opciones = models.CharField(max_length=400)
+    activo = models.BooleanField()
+
+    def __str__(self):
+        return str(self.fecha) + '-Habilitado' if self.activo else '-Deshabilitado'
