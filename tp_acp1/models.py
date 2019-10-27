@@ -40,6 +40,7 @@ class Promocion(models.Model):
 
 
 class MenuDelDia(models.Model):
+    #TODO: agregar campo fecha
     entrada = models.ForeignKey(Plato, on_delete=models.SET_NULL, null=True, related_name='+')
     plato_principal = models.ForeignKey(Plato, on_delete=models.SET_NULL, null=True, related_name='+' )
     postre = models.ForeignKey(Plato, on_delete=models.SET_NULL, null=True, related_name='+')
@@ -49,4 +50,13 @@ class MenuDelDia(models.Model):
     activo = models.BooleanField()
 
     def __str__(self):
-        return str(self.fecha) + '-Habilitado' if self.activo else '-Deshabilitado'
+        return  '-Habilitado' if self.activo else '-Deshabilitado'
+
+
+class Sugerencia(models.Model):
+    email = models.EmailField(null=True)
+    nombre = models.CharField(max_length=120)
+    sugerencia = models.CharField(max_length=800)
+
+    def __str__(self):
+        return self.nombre
