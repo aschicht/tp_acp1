@@ -18,6 +18,14 @@ class Filtro(models.Model):
         return self.nombre + '-Habilitado' if self.activo else '-Deshabilitado'
 
 
+class Categoria(models.Model):
+    nombre = models.CharField(max_length=120)
+    activo = models.BooleanField()
+
+    def __str__(self):
+        return self.nombre + '-Habilitado' if self.activo else '-Deshabilitado'
+
+
 class Plato(models.Model):
     nombre = models.CharField(max_length=200)
     precio = models.CharField(max_length=30)
@@ -25,6 +33,7 @@ class Plato(models.Model):
     descripcion = models.CharField(max_length=400)
     activo = models.BooleanField()
     filtros = models.ManyToManyField(Filtro)
+    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, related_name='+')
 
     def __str__(self):
         return self.nombre + '-Habilitado' if self.activo else '-Deshabilitado'

@@ -26,10 +26,12 @@ router.register(r'filtro', api.FiltroViewSet)
 router.register(r'promocion', api.PromocionViewSet)
 router.register(r'menu-del-dia', api.MenuDelDiaViewSet)
 router.register(r'sugerencia', api.SugerenciaViewSet)
+router.register(r'categoria', api.CategoriaViewSet)
 
 
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('carta/', api.carta, name='carta'),
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ]
