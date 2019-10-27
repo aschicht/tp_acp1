@@ -25,6 +25,7 @@ router.register(r'plato', api.PlatoViewSet)
 router.register(r'filtro', api.FiltroViewSet)
 router.register(r'promocion', api.PromocionViewSet)
 router.register(r'menu-del-dia', api.MenuDelDiaViewSet)
+router.register(r'sugerencia', api.SugerenciaViewSet)
 
 
 urlpatterns = [

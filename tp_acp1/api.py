@@ -3,9 +3,9 @@ import datetime
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 
-from tp_acp1.models import MedioDePago, Plato, Filtro, Promocion, MenuDelDia
+from tp_acp1.models import MedioDePago, Plato, Filtro, Promocion, MenuDelDia, Sugerencia
 from tp_acp1.serializers import MedioDePagoSerializer, PlatoSerializer, FiltroSerializer, PromocionSerializer, \
-    MenuDelDiaSerializer
+    MenuDelDiaSerializer, SugerenciaSerializer
 
 
 class MedioDePagoViewSet(viewsets.ModelViewSet):
@@ -36,3 +36,9 @@ class MenuDelDiaViewSet(viewsets.ModelViewSet):
 
     queryset = MenuDelDia.objects.all().filter(activo=True)
     serializer_class = MenuDelDiaSerializer
+
+
+class SugerenciaViewSet(viewsets.ModelViewSet):
+    #TODO: Paginar
+    queryset = Sugerencia.objects.all()
+    serializer_class = SugerenciaSerializer

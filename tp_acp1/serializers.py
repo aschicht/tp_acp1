@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from tp_acp1.models import MedioDePago, Plato, Filtro, Promocion, MenuDelDia
+from tp_acp1.models import MedioDePago, Plato, Filtro, Promocion, MenuDelDia, Sugerencia
 
 
 class MedioDePagoSerializer(serializers.HyperlinkedModelSerializer):
@@ -42,3 +42,7 @@ class MenuDelDiaSerializer(serializers.HyperlinkedModelSerializer):
         depth = 2
 
 
+class SugerenciaSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Sugerencia
+        fields = ['id', 'nombre', 'email', 'sugerencia']
