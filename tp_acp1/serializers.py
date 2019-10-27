@@ -1,6 +1,9 @@
 from rest_framework import serializers
 
-from tp_acp1.models import MedioDePago, Plato, Filtro, Promocion, MenuDelDia, Sugerencia
+from tp_acp1.models import MedioDePago, Plato, Filtro, Promocion, MenuDelDia, Sugerencia, Categoria
+
+
+
 
 
 class MedioDePagoSerializer(serializers.HyperlinkedModelSerializer):
@@ -16,12 +19,19 @@ class FiltroSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['id', 'nombre']
 
 
+class CategoriaSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Categoria
+        fields = ['id', 'nombre']
+
+
 class PlatoSerializer(serializers.HyperlinkedModelSerializer):
     filtros = FiltroSerializer(many=True, read_only=True)
+    categoria = CategoriaSerializer(read_only=True)
 
     class Meta:
         model = Plato
-        fields = ['id', 'nombre', 'precio', 'imagen', 'descripcion', 'filtros']
+        fields = ['id', 'nombre', 'precio', 'imagen', 'descripcion', 'filtros', 'categoria']
         depth = 1
 
 
@@ -46,3 +56,11 @@ class SugerenciaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Sugerencia
         fields = ['id', 'nombre', 'email', 'sugerencia']
+
+
+class CartaSerializer(serializers.Serializer):
+    platos = PlatoSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = MedioDePago
+        fields = ['id', 'nombre', 'platos']
