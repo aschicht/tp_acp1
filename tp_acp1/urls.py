@@ -24,6 +24,7 @@ router.register(r'medio-de-pago', api.MedioDePagoViewSet)
 router.register(r'plato', api.PlatoViewSet)
 router.register(r'filtro', api.FiltroViewSet)
 router.register(r'promocion', api.PromocionViewSet)
+router.register(r'menu-del-dia', api.MenuDelDiaViewSet)
 
 
 urlpatterns = [
