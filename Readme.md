@@ -93,7 +93,7 @@ $ deactivate
 ```
 Siempre trabajamos en el ambiente virtual cuando codeamos.
 
-#### Bajar las librerias requeridas
+#### Bajar las dependencias requeridas
 
 Vamos a usar un archivo que se llama requirements.txt que contiene 
 un listado de las librerias necesarias para correr el proyecto
@@ -102,11 +102,42 @@ un listado de las librerias necesarias para correr el proyecto
 $ pip3 install -r requirements.txt
 ```
 
+#### Instalar un cliente de postgres
+
+Vamos a instalar un cliente de postgres para usar como base de datos
+
+```
+$ sudo apt update
+$ sudo apt install postgresql postgresql-contrib
+```
+
+Ahora deberiamos tener un servicio en background con postgres corriendo
 
 #### Crear la base de datos
 
-Vamos a usar una base de datos sqlite que es lo mas facil, para crearla:
+Vamos a usar una base de datos y un usuario root. Primero entramos al servidor local
 
+```
+$ sudo -u postgres psql
+```
+
+Luego vamos a crear la base de datos y el usuario root:
+
+```
+CREATE DATABASE tp_acp1;
+
+CREATE USER root WITH PASSWORD 'root';
+
+ALTER ROLE root SET client_encoding TO 'utf8';
+ALTER ROLE root SET default_transaction_isolation TO 'read committed';
+ALTER ROLE root SET timezone TO 'UTC';
+
+GRANT ALL PRIVILEGES ON DATABASE tp_acp1 TO root;
+```
+
+Escribimos \q para salir.
+
+Luego corremos las migraciones para crear las tablas
 ```
 $ python3 manage.py migrate
 ```

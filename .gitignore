@@ -1,4 +1,6 @@
 *.pyc
 *.sqlite3
+/media/*
+/acp1/*
 .idea/*
 venv
