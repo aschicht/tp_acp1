@@ -36,7 +36,7 @@ class PromocionViewSet(viewsets.ModelViewSet):
 
 class MenuDelDiaViewSet(viewsets.ModelViewSet):
 
-    queryset = MenuDelDia.objects.all().filter(activo=True)
+    queryset = MenuDelDia.objects.all().filter(activo=True).filter(fecha__day=datetime.date.today().day)
     serializer_class = MenuDelDiaSerializer
 
 
