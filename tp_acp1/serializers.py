@@ -48,7 +48,7 @@ class MenuDelDiaSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = MenuDelDia
-        fields = ['entrada', 'plato_principal', 'postre', 'cafe', 'precio', 'opciones']
+        fields = ['entrada', 'plato_principal', 'postre', 'cafe', 'precio']
         depth = 2
 
 
