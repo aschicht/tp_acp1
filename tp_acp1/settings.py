@@ -33,8 +33,6 @@ SECRET_KEY = 'mgd#=+1m5c0wesorj0-$8!d0hekif!^o!borqz$z2g2t^+7kw%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-
 
 # Application definition
 
@@ -127,13 +125,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
-
-USE_L10N = True
 
 USE_TZ = True
 
@@ -160,6 +153,9 @@ STATICFILES_FINDERS = (
 'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
+LANGUAGE_CODE = 'es-ar'
+USE_I18N = True
+USE_L10N = True
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

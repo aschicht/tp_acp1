@@ -11,6 +11,10 @@ class MedioDePago(models.Model):
     def __str__(self):
         return self.nombre + '-Habilitado' if self.activo else '-Deshabilitado'
 
+    class Meta:
+        verbose_name = 'Medio de Pago'
+        verbose_name_plural = 'Medios de pago'
+
 
 class Filtro(models.Model):
     nombre = models.CharField(max_length=80)
@@ -19,6 +23,10 @@ class Filtro(models.Model):
     def __str__(self):
         return self.nombre + '-Habilitado' if self.activo else '-Deshabilitado'
 
+    class Meta:
+        verbose_name = 'Filtro'
+        verbose_name_plural = 'Filtros'
+
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=120)
@@ -26,6 +34,10 @@ class Categoria(models.Model):
 
     def __str__(self):
         return self.nombre + '-Habilitado' if self.activo else '-Deshabilitado'
+
+    class Meta:
+        verbose_name = 'Categoria'
+        verbose_name_plural = 'Categorias'
 
 
 class Plato(models.Model):
@@ -40,6 +52,10 @@ class Plato(models.Model):
     def __str__(self):
         return self.nombre + '-Habilitado' if self.activo else '-Deshabilitado'
 
+    class Meta:
+        verbose_name = 'Plato'
+        verbose_name_plural = 'Platos'
+
 
 class Promocion(models.Model):
     nombre = models.CharField(max_length=80)
@@ -49,20 +65,28 @@ class Promocion(models.Model):
     def __str__(self):
         return self.nombre + '-Habilitado' if self.activo else '-Deshabilitado'
 
+    class Meta:
+        verbose_name = 'Promocion'
+        verbose_name_plural = 'Promociones'
+
 
 class MenuDelDia(models.Model):
     #TODO: agregar campo fecha
     entrada = models.ForeignKey(Plato, on_delete=models.SET_NULL, null=True, related_name='+')
     plato_principal = models.ForeignKey(Plato, on_delete=models.SET_NULL, null=True, related_name='+')
+    bebida = models.ForeignKey(Plato, on_delete=models.SET_NULL, null=True, related_name='+')
     postre = models.ForeignKey(Plato, on_delete=models.SET_NULL, null=True, related_name='+')
     precio = models.CharField(max_length=30)
     cafe = models.BooleanField()
-    opciones = models.CharField(max_length=400, null=True, blank=True)
     activo = models.BooleanField(default=True)
     fecha = models.DateField(default=datetime.date.today)
 
     def __str__(self):
         return self.fecha.strftime('%d-%m-%Y') + '-Habilitado' if self.activo else '-Deshabilitado'
+
+    class Meta:
+        verbose_name = 'Menu del dia'
+        verbose_name_plural = 'Menus del dia'
 
 
 class Sugerencia(models.Model):
@@ -72,3 +96,7 @@ class Sugerencia(models.Model):
 
     def __str__(self):
         return self.nombre + self.email
+
+    class Meta:
+        verbose_name = 'Sugerencia'
+        verbose_name_plural = 'Sugerencias'

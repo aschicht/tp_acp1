@@ -35,3 +35,7 @@ urlpatterns = [
     path('carta/', api.carta, name='carta'),
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ]
+
+admin.site.site_header = "Administracion de menu"
+admin.site.site_title = "Menu web"
+admin.site.index_title = "Bienvenido a la web de mi menu"
